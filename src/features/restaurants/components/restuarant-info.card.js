@@ -1,7 +1,7 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";
 import styled from "styled-components/native";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, Image, View } from "react-native";
 import { Card } from "react-native-paper";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
@@ -50,14 +50,14 @@ const SectionEnd = styled.View`
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Some Restaurant",
-    icon,
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
     ],
     address = "100 some random street",
     isOpenNow = true,
     rating = 4.3,
-    isClosedTemporarily,
+    isClosedTemporarily = true,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.ceil(rating)));
@@ -74,7 +74,15 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             ))}
           </Rating>
           <SectionEnd>
+            {isClosedTemporarily && (
+              <Text variant="label" style={{ color: "red" }}>
+                CLOSED TEMPORARILY
+              </Text>
+            )}
+            <View style={{ paddingLeft: 16 }} />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            <View style={{ paddingLeft: 16 }} />
+            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
