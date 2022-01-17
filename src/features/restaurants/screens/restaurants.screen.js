@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   Platform,
 } from "react-native";
-import { RestaurantInfo } from "../components/restuarant-info.components";
+import { RestaurantInfoCard } from "../components/restuarant-info.card";
 
 export const RestaurantsScreen = () => (
   <SafeAreaView style={styles.container}>
@@ -16,7 +16,7 @@ export const RestaurantsScreen = () => (
       <Searchbar placeholder="restaurants..." />
     </View>
     <View style={styles.list}>
-      <RestaurantInfo />
+      <RestaurantInfoCard />
     </View>
   </SafeAreaView>
 );

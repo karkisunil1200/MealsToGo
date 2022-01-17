@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   Platform,
 } from "react-native";
-import { RestaurantInfo } from "./src/features/restaurants/components/restuarant-info.components";
+import { RestaurantInfo } from "./src/features/restaurants/components/restuarant-info.card";
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 
 //
